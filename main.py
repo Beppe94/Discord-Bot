@@ -1,7 +1,7 @@
 import discord
 import os
 from dotenv import load_dotenv
-import PIL
+from weather import *
 
 command_prefix = 'w.'
 load_dotenv('.env')
@@ -21,6 +21,7 @@ async def on_message(message):
         return
     if message.author != client.user and message.content.startswith(command_prefix):
         await message.channel.send(f'Hi {message.author.mention}')
+        await message.channel.send(weather(message))
     elif 'gif' in message.content:
         await message.channel.send('This is a gif')
         
