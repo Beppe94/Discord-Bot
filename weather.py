@@ -1,5 +1,4 @@
 import json
-from xml.dom import NotFoundErr
 import requests
 from dotenv import load_dotenv
 import os 
