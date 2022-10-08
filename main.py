@@ -19,12 +19,11 @@ async def on_ready():
 async def on_message(message):
     if message.author.bot:
         return
+
     if message.author != client.user and message.content.startswith(command_prefix):
         await message.channel.send(f'Hi {message.author.mention}')
-        await message.channel.send(weather(message))
-    elif 'gif' in message.content:
-        await message.channel.send('This is a gif')
-        
-
+        await message.channel.send(weather_data(message))
+    elif 'gif' in message.content or 'imgur' in message.content:
+        await message.channel.send('This is an animated image')
 
 client.run(TOKEN)
