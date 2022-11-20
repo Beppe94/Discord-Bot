@@ -2,6 +2,7 @@ import discord
 import os
 from dotenv import load_dotenv
 from weather import *
+from image import *
 
 command_prefix = 'w.'
 load_dotenv('.env')
@@ -24,6 +25,6 @@ async def on_message(message):
         await message.channel.send(f'Hi {message.author.mention}')
         await message.channel.send(weather_data(message))
     elif 'gif' in message.content or 'imgur' in message.content:
-        await message.channel.send('This is an animated image')
+        await message.channel.send(resize(message.content))
 
 client.run(TOKEN)
